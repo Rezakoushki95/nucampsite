@@ -6,9 +6,10 @@ const SubHeader = ({ current, detail }) => {
         <Row>
             <Col>
                 <Breadcrumb>
-                    <BreadcrumbItem>
+                    {(current!=="Home") &&<BreadcrumbItem>
                         <Link to='/'>Home</Link>
-                    </BreadcrumbItem>
+                    </BreadcrumbItem>}
+
                     {detail && (
                         <BreadcrumbItem>
                             <Link to='/directory'>Directory</Link>
