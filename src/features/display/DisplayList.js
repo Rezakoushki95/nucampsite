@@ -4,11 +4,16 @@ import AnimatedDisplayCard from './AnimatedDisplayCard';
 import { selectFeaturedCampsite } from '../campsites/campsitesSlice';
 import { selectFeaturedPromotion } from '../promotions/promotionsSlice';
 import { selectFeaturedPartners } from '../partners/partnersSlice';
+import { useSelector } from 'react-redux/es/hooks/useSelector';
 
 
 const DisplayList = () => {
-    const items = [selectFeaturedCampsite(), selectFeaturedPromotion(), selectFeaturedPartners()];
-
+    const items = useSelector((state) => [
+        selectFeaturedCampsite(state),
+        selectFeaturedPromotion(state),
+        selectFeaturedPartners(state)
+    ]);
+    console.log('display items:', items);
     return (
         <Row>
             {items.map((item, idx) => {
